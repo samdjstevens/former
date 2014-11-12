@@ -13,7 +13,7 @@ use Spanky\Former\Elements\Select;
 class ElementFactory
 {
     /**
-     * Create a new Input element.
+     * Create a new Input element with type="text".
      *
      * @param  string $name
      * @param  string|null $value
@@ -26,7 +26,7 @@ class ElementFactory
     }
 
     /**
-     * Create a new HiddenInput element.
+     * Create a new Input element with type="hidden".
      *
      * @param  string $name
      * @param  string|null $value
@@ -37,6 +37,8 @@ class ElementFactory
     {
         return new Input($name, $value, array_merge(['type' => 'hidden'], $attributes));
     }
+
+
 
     /**
      * Create a new Select element.
