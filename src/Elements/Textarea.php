@@ -23,7 +23,7 @@ class Textarea extends AbstractFormElement implements FormElement
      * @param  string $value
      * @return $this
      */
-    public function setValueAttribute($value)
+    protected function setValueAttribute($value)
     {
         return $this;
     }
