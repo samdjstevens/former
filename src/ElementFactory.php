@@ -2,7 +2,6 @@
 
 namespace Spanky\Former;
 
-use Spanky\Former\Elements\HiddenInput;
 use Spanky\Former\Elements\Input;
 use Spanky\Former\Elements\Select;
 
@@ -23,7 +22,7 @@ class ElementFactory
      */
     public function text($name, $value = null, $attributes = [])
     {
-        return new Input($name, $value, $attributes);
+        return new Input($name, $value, array_merge(['type' => 'text'], $attributes));
     }
 
     /**
@@ -36,7 +35,7 @@ class ElementFactory
      */
     public function hidden($name, $value = null, $attributes = [])
     {
-        return new HiddenInput($name, $value, $attributes);
+        return new Input($name, $value, array_merge(['type' => 'hidden'], $attributes));
     }
 
     /**
