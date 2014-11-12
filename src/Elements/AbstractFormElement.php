@@ -25,6 +25,9 @@ abstract class AbstractFormElement
      */
     public function __construct($name, $value = null, $attributes = [])
     {
+        $this->attr('name', $name);
+        // Set the name attribute
+
         if (! is_null($value)) {
             // If a (non-null) value was passed, set
             // the value attribute
