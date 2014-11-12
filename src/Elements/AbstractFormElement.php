@@ -49,9 +49,33 @@ abstract class AbstractFormElement
      */
     public function attr($name, $value)
     {
+        $methodName = 'set' . str_replace(array(' ', '_', '-'), '', ucwords($name)) . 'Attribute';
+        // Form a method name of form "set{AttributeName}Name"
+
+        if (method_exists($this, $methodName)) {
+            // A specific attribute set method has been defined
+            // for this attribute, call that with the
+            // value
+
+            return $this->{$methodName}($value);
+        }
+
         $this->attributes[$name] = $value;
+        // Otherwise, just set the attribute
 
         return $this;
+    }
+
+    /**
+     * Copy the name across to the id attribute
+     * when set by default.
+     *
+     * @param string $name
+     */
+    public function setNameAttribute($name)
+    {
+        $this->attributes['name'] = $name;
+        $this->attributes['id'] = $name;
     }
 
     /**
