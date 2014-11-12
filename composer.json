@@ -1,0 +1,14 @@
+{
+    "name": "spanky/former",
+    "authors": [
+        {
+            "name": "Sam Stevens",
+            "email": "samdjstevens@googlemail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Spanky\\Former\\": "src"
+        }
+    }
+}
