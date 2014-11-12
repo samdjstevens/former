@@ -36,20 +36,33 @@ class Select extends AbstractFormElement implements FormElement
      */
     public function __construct($name, $options = [], $value = null, $attributes = [])
     {
-        if (array_key_exists('placeholder', $attributes)) {
-            // Placeholder attribute has been passed
-
-            $this->placeholder($attributes['placeholder']);
-            // Set the placeholder with the custom method
-
-            unset($attributes['placeholder']);
-            // Remove from the attributes array
-        }
-
-        parent::__construct($name, null, $attributes);
-
         $this->options = $options;
-        $this->selectedValue = $value;
+        parent::__construct($name, $value, $attributes);
+    }
+
+    /**
+     * If the placeholder attribute is selected
+     * just route through to the placeholder
+     * method.
+     *
+     * @param  string $value
+     * @return Select
+     */
+    protected function setPlaceholderAttribute($value)
+    {
+        return $this->placeholder($value);
+    }
+
+    /**
+     * Selects don't use the value attribute,
+     * so do nothing.
+     *
+     * @param  string $value
+     * @return $this
+     */
+    protected function setValueAttribute($value)
+    {
+        return $this;
     }
 
     /**
@@ -127,6 +140,6 @@ class Select extends AbstractFormElement implements FormElement
      */
     protected function getSelectedAttribute($value)
     {
-        return $this->selectedValue == $value ? ' selected' : '';
+        return $this->value == $value ? ' selected' : '';
     }
 }
