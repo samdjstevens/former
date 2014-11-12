@@ -17,6 +17,13 @@ abstract class AbstractFormElement
     protected $attributes = [];
 
     /**
+     * The value of the element.
+     *
+     * @var mixed
+     */
+    protected $value;
+
+    /**
      * Constructor.
      *
      * @param string $name
@@ -31,7 +38,8 @@ abstract class AbstractFormElement
         if (! is_null($value)) {
             // If a (non-null) value was passed, set
             // the value attribute
-            $this->attr('name', $name);
+            $this->value = $value;
+            $this->attr('value', $value);
         }
 
         foreach($attributes as $name => $value) {

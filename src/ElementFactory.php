@@ -4,6 +4,7 @@ namespace Spanky\Former;
 
 use Spanky\Former\Elements\Input;
 use Spanky\Former\Elements\Select;
+use Spanky\Former\Elements\Textarea;
 
 /**
  * Class ElementFactory
@@ -58,10 +59,23 @@ class ElementFactory
      * @param  array $options
      * @param  string|null $value
      * @param  array $attributes
-     * @return Input
+     * @return Select
      */
     public function select($name, $options, $value = null, $attributes = [])
     {
         return new Select($name, $options, $value, $attributes);
+    }
+
+    /**
+     * Create a new Textarea element.
+     *
+     * @param  string $name
+     * @param  string|null $value
+     * @param  array $attributes
+     * @return Textarea
+     */
+    public function textarea($name, $value = null, $attributes = [])
+    {
+        return new Textarea($name, $value, $attributes);
     }
 }
