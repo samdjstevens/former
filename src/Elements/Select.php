@@ -20,13 +20,6 @@ class Select extends AbstractFormElement implements FormElement
     protected $options = [];
 
     /**
-     * The value to set as selected.
-     *
-     * @var string
-     */
-    protected $selectedValue;
-
-    /**
      * Constructor.
      *
      * @param string $name
