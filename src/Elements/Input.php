@@ -7,7 +7,7 @@ use Spanky\Former\FormElement;
 /**
  * Class Input
  *
- * @package Spanky\Former\Elements
+ * @package Spanky\Former
  */
 class Input extends AbstractFormElement implements FormElement
 {

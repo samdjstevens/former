@@ -7,7 +7,7 @@ use Spanky\Former\FormElement;
 /**
  * Class HiddenInput
  *
- * @package Spanky\Former\Elements
+ * @package Spanky\Former
  */
 class HiddenInput extends Input implements FormElement
 {

@@ -5,7 +5,7 @@ namespace Spanky\Former\Elements;
 /**
  * Class AbstractFormElement
  *
- * @package Spanky\Former\Elements
+ * @package Spanky\Former
  */
 abstract class AbstractFormElement
 {
