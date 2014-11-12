@@ -43,6 +43,32 @@ class Select extends AbstractFormElement implements FormElement
     }
 
     /**
+     * Add a "placeholder" option to the select. This
+     * is an option that is first, with an empty
+     * value by default.
+     *
+     * @param  string $label
+     * @param  string $value
+     * @return $this
+     */
+    public function placeholder($label, $value = '')
+    {
+        $options = $this->options;
+        // Store the current options
+
+        $this->options = [$value => $label];
+        // Restart the options array, with the placeholder
+        // as the first element
+
+        foreach($options as $value => $label) {
+            $this->options[$value] = $label;
+        }
+        // Add back the existing options
+
+        return $this;
+    }
+
+    /**
      * Returns the compiled HTML for the element.
      *
      * @return string
