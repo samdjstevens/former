@@ -91,7 +91,7 @@ class Select extends AbstractFormElement implements FormElement
     protected function buildOptionTags()
     {
         $html = '';
-        // Initalise the empty HTML string
+        // Initialise the empty HTML string
 
         foreach($this->options as $value => $label) {
             // Loop through and build each <option>
