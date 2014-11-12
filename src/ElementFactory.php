@@ -38,7 +38,18 @@ class ElementFactory
         return new Input($name, $value, array_merge(['type' => 'hidden'], $attributes));
     }
 
-
+    /**
+     * Create a new Input element with type="email".
+     *
+     * @param  string $name
+     * @param  string|null $value
+     * @param  array $attributes
+     * @return Input
+     */
+    public function email($name, $value = null, $attributes = [])
+    {
+        return new Input($name, $value, array_merge(['type' => 'email'], $attributes));
+    }
 
     /**
      * Create a new Select element.
