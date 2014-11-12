@@ -36,6 +36,16 @@ class Select extends AbstractFormElement implements FormElement
      */
     public function __construct($name, $options = [], $value = null, $attributes = [])
     {
+        if (array_key_exists('placeholder', $attributes)) {
+            // Placeholder attribute has been passed
+
+            $this->placeholder($attributes['placeholder']);
+            // Set the placeholder with the custom method
+
+            unset($attributes['placeholder']);
+            // Remove from the attributes array
+        }
+
         parent::__construct($name, null, $attributes);
 
         $this->options = $options;
