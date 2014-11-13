@@ -2,6 +2,8 @@
 
 namespace Spanky\Former\Elements;
 
+use BadMethodCallException;
+
 /**
  * Class AbstractFormElement
  *
@@ -84,6 +86,24 @@ abstract class AbstractFormElement
     {
         $this->attributes['name'] = $name;
         $this->attributes['id'] = $name;
+    }
+
+    /**
+     * Magic call method to set attributes.
+     *
+     * @param  string $method
+     * @param  string $arguments
+     * @return \Spanky\Former\Elements\AbstractFormElement
+     */
+    public function __call($method, $arguments)
+    {
+        if (! count($arguments)) {
+            throw new BadMethodCallException();
+        }
+        // Make sure that an argument (the value) was passed
+
+        return $this->attr($method, $arguments[0]);
+        // Set the attribute
     }
 
     /**
