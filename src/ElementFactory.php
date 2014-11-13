@@ -23,7 +23,7 @@ class ElementFactory
      */
     public function text($name, $value = null, $attributes = [])
     {
-        return new Input($name, $value, array_merge(['type' => 'text'], $attributes));
+        return $this->input('text', $name, $value, $attributes);
     }
 
     /**
@@ -36,7 +36,7 @@ class ElementFactory
      */
     public function hidden($name, $value = null, $attributes = [])
     {
-        return new Input($name, $value, array_merge(['type' => 'hidden'], $attributes));
+        return $this->input('hidden', $name, $value, $attributes);
     }
 
     /**
@@ -49,7 +49,33 @@ class ElementFactory
      */
     public function email($name, $value = null, $attributes = [])
     {
-        return new Input($name, $value, array_merge(['type' => 'email'], $attributes));
+        return $this->input('email', $name, $value, $attributes);
+    }
+
+    /**
+     * Create a new Input element with type="file".
+     *
+     * @param  string $name
+     * @param  array $attributes
+     * @return Input
+     */
+    public function file($name, $attributes = [])
+    {
+        return $this->input('file', $name, null, $attributes);
+    }
+
+    /**
+     * Create a new Input element with a certain type.
+     *
+     * @param  string $type
+     * @param  string $name
+     * @param  string|null $value
+     * @param  array $attributes
+     * @return Input
+     */
+    public function input($type = 'text', $name, $value = null, $attributes = [])
+    {
+        return new Input($name, $value, array_merge(['type' => $type], $attributes));
     }
 
     /**

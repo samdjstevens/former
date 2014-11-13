@@ -31,6 +31,12 @@ $former->text('input_name', 'value', ['class' => 'myClass', 'id' => 'myId']);
 $former->hidden('input_name', 'value', ['class' => 'myClass', 'id' => 'myId']);
 ```
 
+#### File inputs
+
+```php
+$former->file('input_name', ['class' => 'myClass', 'id' => 'myId']);
+```
+
 #### Email inputs
 
 ```php
@@ -45,6 +51,15 @@ $former->select('input_name', ['Option 1', 'Option 2'], 'value', ['class' => 'my
 
 Calling the ```placeholder()``` method on a select box element will prepend an additional `<option></option>` 
 tag to the list contained within, with an empty value by default.
+
+#### Other inputs
+
+To create other `<input>` elements, call the `input()` method, passing the desired input type 
+as the first parameter.
+
+```php
+$former->input('color', 'color_picker', ['Option 1', 'Option 2'], 'value', ['class' => 'myClass', 'id' => 'myId']);
+```
 
 ### Setting attributes with method chaining
 
